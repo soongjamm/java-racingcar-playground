@@ -14,12 +14,20 @@ public class StringAddCalculator {
             String customDelimiter = m.group(1);
             String[] tokens = m.group(2).split(customDelimiter);
             for (String token : tokens) {
-                sum += Integer.parseInt(token);
+                int parsed = Integer.parseInt(token);
+                if (parsed < 0) {
+                    throw new RuntimeException();
+                }
+                sum += parsed;
             }
         } else {
             String[] tokens = target.split(",|:");
             for (String token : tokens) {
-                sum += Integer.parseInt(token);
+                int parsed = Integer.parseInt(token);
+                if (parsed < 0) {
+                    throw new RuntimeException();
+                }
+                sum += parsed;
             }
         }
         return sum;
