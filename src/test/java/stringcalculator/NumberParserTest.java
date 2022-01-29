@@ -2,7 +2,6 @@ package stringcalculator;
 
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
-import stringcalculator.NumberParser;
 
 import java.util.List;
 

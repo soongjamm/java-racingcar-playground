@@ -1,7 +1,6 @@
 package stringcalculator;
 
 import org.junit.jupiter.api.Test;
-import stringcalculator.Numbers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
