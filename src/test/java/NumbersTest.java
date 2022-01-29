@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class NumbersTest {
 
     @Test
-    void default_delimiter() {
+    void sum1() {
         Numbers sut = new Numbers("1,2");
 
         int result = sut.sum();
@@ -14,7 +14,7 @@ public class NumbersTest {
     }
 
     @Test
-    void custom_delimiter() {
+    void sum2() {
         Numbers sut = new Numbers("//;\n1;2");
 
         int result = sut.sum();
@@ -23,7 +23,7 @@ public class NumbersTest {
     }
 
     @Test
-    void hasNegative() {
+    void hasNegative_false() {
         Numbers sut = new Numbers("//;\n1;2;3");
 
         boolean result = sut.hasNegative();
@@ -32,7 +32,7 @@ public class NumbersTest {
     }
 
     @Test
-    void hasNegative2() {
+    void hasNegative_true() {
         Numbers sut = new Numbers("//;\n-1;2;3");
 
         boolean result = sut.hasNegative();
