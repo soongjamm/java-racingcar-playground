@@ -5,6 +5,11 @@ public class StringAddCalculator {
         if (Objects.isNull(target) || target.isEmpty()) {
             return 0;
         }
-        return Integer.parseInt(target);
+        String[] tokens = target.split(",|:");
+        int sum = 0;
+        for (String token : tokens) {
+            sum += Integer.parseInt(token);
+        }
+        return sum;
     }
 }
