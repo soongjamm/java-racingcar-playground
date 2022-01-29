@@ -8,7 +8,7 @@ public class StringAddCalculator {
             return 0;
         }
 
-        Numbers numbers = new Numbers(target);
+        Numbers numbers = new Numbers(NumberParser.parse(target));
         if (numbers.hasNegative()) {
             throw new RuntimeException();
         }

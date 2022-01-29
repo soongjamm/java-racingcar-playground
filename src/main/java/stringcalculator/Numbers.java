@@ -6,8 +6,8 @@ import java.util.stream.Stream;
 public class Numbers {
     private List<Integer> numbers;
 
-    public Numbers(String numbers) {
-        this.numbers = NumberParser.parse(numbers);
+    public Numbers(List<Integer> numbers) {
+        this.numbers = numbers;
     }
 
     public boolean hasNegative() {

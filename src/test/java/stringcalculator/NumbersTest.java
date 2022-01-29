@@ -1,23 +1,17 @@
 package stringcalculator;
 
+import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class NumbersTest {
 
-    @Test
-    void sum1() {
-        Numbers sut = new Numbers("1,2");
-
-        int result = sut.sum();
-
-        assertThat(result).isEqualTo(3);
-    }
+    Numbers sut;
 
     @Test
-    void sum2() {
-        Numbers sut = new Numbers("//;\n1;2");
+    void sum() {
+        sut = new Numbers(Lists.newArrayList(1, 2));
 
         int result = sut.sum();
 
@@ -26,7 +20,7 @@ public class NumbersTest {
 
     @Test
     void hasNegative_false() {
-        Numbers sut = new Numbers("//;\n1;2;3");
+        sut = new Numbers(Lists.newArrayList(1, 2));
 
         boolean result = sut.hasNegative();
 
@@ -35,7 +29,7 @@ public class NumbersTest {
 
     @Test
     void hasNegative_true() {
-        Numbers sut = new Numbers("//;\n-1;2;3");
+        sut = new Numbers(Lists.newArrayList(-1, 2));
 
         boolean result = sut.hasNegative();
 
