@@ -9,11 +9,11 @@ public class PlayReportTest {
 
     @Test
     void Car의_랜덤값을_저장한다() {
-        Name carName = Name.of("a");
-        PlayReport sut = new PlayReport(Lists.list(carName));
+        Car car = new Car("a");
+        PlayReport sut = new PlayReport(car);
 
-        sut.reportRandom(carName, 4);
+        sut.putRandom(1);
 
-        assertThat(sut.randoms().get(carName)).isEqualTo(Lists.list(4));
+        assertThat(sut.randoms()).isEqualTo(Lists.list(1));
     }
 }

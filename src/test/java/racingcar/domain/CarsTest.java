@@ -19,9 +19,9 @@ public class CarsTest {
         int tryCount = 5;
         Cars sut = Cars.from(Lists.list("a"));
 
-        PlayReport result = sut.play(tryCount);
+        PlayReports result = sut.play(tryCount);
 
-        assertThat(result.randoms().get(Name.of("a"))).hasSize(tryCount);
+        assertThat(result.getBy(Name.of("a")).randoms()).hasSize(tryCount);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class CarsTest {
         int tryCount = 5;
         Cars sut = Cars.from(Lists.list("a"));
 
-        PlayReport result = sut.play(tryCount);
+        PlayReport result = sut.play(tryCount).getBy(Name.of("a"));
 
         Position sutPosition = sut.participants().get(0).position();
         assertThat(sutPosition).isEqualTo(Position.of(getMovableCount(result)));
@@ -37,6 +37,6 @@ public class CarsTest {
     }
 
     private int getMovableCount(PlayReport result) {
-        return (int) result.randoms().get(Name.of("a")).stream().filter(e -> e >= Car.DEFAULT_MOVABLE_FROM).count();
+        return (int) result.randoms().stream().filter(e -> e >= Car.DEFAULT_MOVABLE_FROM).count();
     }
 }

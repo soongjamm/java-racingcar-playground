@@ -3,18 +3,19 @@ package racingcar.domain;
 import java.util.*;
 
 public class PlayReport {
-    private Map<Name, List<Integer>> randoms;
+    private final Car car;
+    private final List<Integer> randoms;
 
-    public PlayReport(List<Name> carNames) {
-        randoms = new HashMap<>();
-        carNames.forEach(e -> randoms.put(e, new ArrayList<>()));
+    public PlayReport(Car car) {
+        this.car = car;
+        this.randoms = new ArrayList<>();
     }
 
-    public void reportRandom(Name name, int randomValue) {
-        this.randoms.get(name).add(randomValue);
+    public List<Integer> randoms() {
+        return Collections.unmodifiableList(randoms);
     }
 
-    public Map<Name, List<Integer>> randoms() {
-        return Collections.unmodifiableMap(randoms);
+    public void putRandom(int randomValue) {
+        this.randoms.add(randomValue);
     }
 }

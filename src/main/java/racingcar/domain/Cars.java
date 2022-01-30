@@ -22,19 +22,20 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    public PlayReport play(int tryCount) {
-        PlayReport playReport = new PlayReport(carNames());
+    public PlayReports play(int tryCount) {
+        PlayReports playReports = new PlayReports(cars);
         for (int i = 1; i <= tryCount; i++) {
-            moveAndReport(playReport);
+            moveAndReport(playReports);
         }
-        return playReport;
+        return playReports;
     }
 
-    private void moveAndReport(PlayReport playReport) {
+    private void moveAndReport(PlayReports playReports) {
         for (Car car : cars) {
             int random = RandomGenerator.generate();
-            playReport.reportRandom(car.name(), random);
+            PlayReport report = playReports.getBy(car.name());
             car.moveForwardIfPossibleBy(random);
+            report.putRandom(random);
         }
     }
 
