@@ -5,12 +5,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PlayReportTest {
+public class RandomNumbersTest {
 
     @Test
     void Car의_랜덤값을_저장한다() {
-        Car car = new Car("a");
-        PlayReport sut = new PlayReport(car);
+        RandomNumbers sut = new RandomNumbers();
 
         sut.putRandom(1);
 

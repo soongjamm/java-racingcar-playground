@@ -29,14 +29,14 @@ public class CarsTest {
         int tryCount = 5;
         Cars sut = Cars.from(Lists.list("a"));
 
-        PlayReport result = sut.play(tryCount).getBy(Name.of("a"));
+        RandomNumbers result = sut.play(tryCount).getBy(Name.of("a"));
 
         Position sutPosition = sut.participants().get(0).position();
         assertThat(sutPosition).isEqualTo(Position.of(getMovableCount(result)));
 
     }
 
-    private int getMovableCount(PlayReport result) {
+    private int getMovableCount(RandomNumbers result) {
         return (int) result.randoms().stream().filter(e -> e >= Car.DEFAULT_MOVABLE_FROM).count();
     }
 }

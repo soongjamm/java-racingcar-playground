@@ -6,14 +6,20 @@ import java.util.Map;
 
 public class PlayReports {
 
-    private final Map<Name, PlayReport> playReports;
+    private final Cars cars;
+    private final Map<Name, RandomNumbers> playReports;
 
-    public PlayReports(List<Car> cars) {
+    public PlayReports(Cars cars) {
+        this.cars = cars;;
         this.playReports = new HashMap<>();
-        cars.forEach(car ->  playReports.put(car.name(), new PlayReport(car)));
+        cars.participants().forEach(car ->  playReports.put(car.name(), new RandomNumbers()));
     }
 
-    public PlayReport getBy(Name name) {
+    public RandomNumbers getBy(Name name) {
         return playReports.get(name);
+    }
+
+    public List<Car> findWinners() {
+        return this.cars.findFarthestCars();
     }
 }

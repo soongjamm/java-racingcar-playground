@@ -3,6 +3,7 @@ package racingcar.domain;
 import util.RandomGenerator;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -10,7 +11,7 @@ import static java.util.stream.Collectors.toList;
 public class Cars {
     private List<Car> cars;
 
-    public Cars(List<Car> cars) {
+    private Cars(List<Car> cars) {
         this.cars = cars;
     }
 
@@ -23,7 +24,7 @@ public class Cars {
     }
 
     public PlayReports play(int tryCount) {
-        PlayReports playReports = new PlayReports(cars);
+        PlayReports playReports = new PlayReports(this);
         for (int i = 1; i <= tryCount; i++) {
             moveAndReport(playReports);
         }
@@ -33,14 +34,17 @@ public class Cars {
     private void moveAndReport(PlayReports playReports) {
         for (Car car : cars) {
             int random = RandomGenerator.generate();
-            PlayReport report = playReports.getBy(car.name());
+            RandomNumbers report = playReports.getBy(car.name());
             car.moveForwardIfPossibleBy(random);
             report.putRandom(random);
         }
     }
 
-    private List<Name> carNames() {
-        return cars.stream().map(Car::name).collect(toList());
+    public List<Car> findFarthestCars() {
+        Position max = cars.stream()
+                .max(Comparator.comparing(Car::position))
+                .orElseThrow(IllegalArgumentException::new)
+                .position();
+        return cars.stream().filter(e -> e.position().equals(max)).collect(toList());
     }
-
 }

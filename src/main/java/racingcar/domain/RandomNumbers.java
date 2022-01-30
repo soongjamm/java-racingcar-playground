@@ -2,12 +2,10 @@ package racingcar.domain;
 
 import java.util.*;
 
-public class PlayReport {
-    private final Car car;
+public class RandomNumbers {
     private final List<Integer> randoms;
 
-    public PlayReport(Car car) {
-        this.car = car;
+    public RandomNumbers() {
         this.randoms = new ArrayList<>();
     }
 
