@@ -7,6 +7,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CarTest {
 
     @Test
+    void 자동차는_이름을_갖는다() {
+        String name = "myname";
+
+        Car sut = new Car(name);
+
+        assertThat(sut.name()).isEqualTo(Name.of(name));
+    }
+
+    @Test
     void 자동차의_초기_위치는_0_이다() {
         Car sut = new Car();
 
