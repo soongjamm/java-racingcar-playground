@@ -14,29 +14,29 @@ public class CarsTest {
         assertThat(sut.participants()).hasSize(5);
     }
 
-    @Test
-    void 주어진_수만큼_전진을_시도한다() {
-        int tryCount = 5;
-        Cars sut = Cars.from(Lists.list("a"));
+//    @Test
+//    void 주어진_수만큼_전진을_시도한다() {
+//        int tryCount = 5;
+//        Cars sut = Cars.from(Lists.list("a"));
+//
+//        PlayReports result = sut.play(tryCount);
+//
+//        assertThat(result.getBy(Name.of("a")).randoms()).hasSize(tryCount);
+//    }
 
-        PlayReports result = sut.play(tryCount);
+//    @Test
+//    void 전진_회수는_4이상의_랜덤숫자길이와_같다() {
+//        int tryCount = 5;
+//        Cars sut = Cars.from(Lists.list("a"));
+//
+//        RandomNumbers result = sut.play(tryCount).getBy(Name.of("a"));
+//
+//        Position sutPosition = sut.participants().get(0).position();
+//        assertThat(sutPosition).isEqualTo(Position.of(getMovableCount(result)));
+//
+//    }
 
-        assertThat(result.getBy(Name.of("a")).randoms()).hasSize(tryCount);
-    }
-
-    @Test
-    void 전진_회수는_4이상의_랜덤숫자길이와_같다() {
-        int tryCount = 5;
-        Cars sut = Cars.from(Lists.list("a"));
-
-        RandomNumbers result = sut.play(tryCount).getBy(Name.of("a"));
-
-        Position sutPosition = sut.participants().get(0).position();
-        assertThat(sutPosition).isEqualTo(Position.of(getMovableCount(result)));
-
-    }
-
-    private int getMovableCount(RandomNumbers result) {
-        return (int) result.randoms().stream().filter(e -> e >= Car.DEFAULT_MOVABLE_FROM).count();
-    }
+//    private int getMovableCount(RandomNumbers result) {
+//        return (int) result.randoms().stream().filter(e -> e >= Car.DEFAULT_MOVABLE_FROM).count();
+//    }
 }

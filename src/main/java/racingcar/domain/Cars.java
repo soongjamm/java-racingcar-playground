@@ -23,21 +23,11 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    public PlayReports play(int tryCount) {
-        PlayReports playReports = new PlayReports(this);
-        for (int i = 1; i <= tryCount; i++) {
-            moveAndReport(playReports);
-        }
-        return playReports;
-    }
-
-    private void moveAndReport(PlayReports playReports) {
+    public List<Car> play() {
         for (Car car : cars) {
-            int random = RandomGenerator.generate();
-            RandomNumbers report = playReports.getBy(car.name());
-            car.moveForwardIfPossibleBy(random);
-            report.putRandom(random);
+            car.moveForwardIfPossibleBy(RandomGenerator.generate());
         }
+        return Collections.unmodifiableList(cars);
     }
 
     public List<Car> findFarthestCars() {

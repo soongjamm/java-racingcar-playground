@@ -34,4 +34,13 @@ public class Position implements Comparable<Position> {
     public int compareTo(Position o) {
         return this.position - o.position;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            sb.append("-");
+        }
+        return sb.toString();
+    }
 }
