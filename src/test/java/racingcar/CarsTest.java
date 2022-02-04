@@ -47,4 +47,18 @@ public class CarsTest {
 
         assertThat(result).hasSize(5);
     }
+
+    @Test
+    void move_forward() {
+        Cars sut = new Cars(Lists.newArrayList(new Car("a", new Position(0))));
+
+        List<Car> result = sut.moveForward(new RandomStrategy() {
+            @Override
+            int getRandomNumber() {
+                return 4;
+            }
+        });
+
+        assertThat(result.get(0).position()).isEqualTo(new Position(1));
+    }
 }

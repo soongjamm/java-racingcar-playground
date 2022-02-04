@@ -18,6 +18,10 @@ public class Cars {
                 .collect(toList());
     }
 
+    Cars(List<Car> cars) {
+        this.cars = cars;
+    }
+
     static List<Car> findWinners(List<Car> cars) {
         Position max = cars.stream().max(Comparator.comparing(Car::position)).orElseThrow(IllegalStateException::new).position();
         return cars.stream().filter(car -> car.isWinner(max)).collect(toList());
@@ -28,6 +32,11 @@ public class Cars {
     }
 
     public List<Car> participants() {
+        return Collections.unmodifiableList(cars);
+    }
+
+    public List<Car> moveForward(RandomStrategy randomStrategy) {
+        cars.forEach(e -> e.moveForward(randomStrategy));
         return Collections.unmodifiableList(cars);
     }
 }
