@@ -29,4 +29,13 @@ public class CarsTest {
 
         assertThat(result).containsExactly(winner);
     }
+
+    @Test
+    void 생성() {
+        Cars sut = new Cars("a,b,c,d,e");
+
+        List<Car> result = sut.participants();
+
+        assertThat(result).hasSize(5);
+    }
 }
