@@ -21,4 +21,10 @@ public class Car {
     public Name name() {
         return name;
     }
+
+    public void moveForward(MovingStrategy strategy) {
+        if (strategy.movable()) {
+            this.position = position.increase();
+        }
+    }
 }

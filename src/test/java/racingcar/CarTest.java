@@ -23,4 +23,22 @@ public class CarTest {
 
         assertThat(result).isEqualTo(new Name("mycar"));
     }
+
+    @Test
+    void 자동차를_전진시킨다() {
+        Car sut = new Car("mycar");
+
+        sut.moveForward(() -> true);
+
+        assertThat(sut.position()).isEqualTo(new Position(1));
+    }
+
+    @Test
+    void 자동차를_전진시키지_않는다() {
+        Car sut = new Car("mycar");
+
+        sut.moveForward(() -> false);
+
+        assertThat(sut.position()).isEqualTo(new Position(0));
+    }
 }

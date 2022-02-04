@@ -30,4 +30,13 @@ public class PositionTest {
 
         assertThat(sut).isEqualTo(new Position(0));
     }
+
+    @Test
+    void 위치_증가() {
+        Position sut = new Position(0);
+
+        Position result = sut.increase();
+
+        assertThat(result).isEqualTo(new Position(1));
+    }
 }
