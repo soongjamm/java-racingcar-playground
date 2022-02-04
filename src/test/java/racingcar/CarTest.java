@@ -14,4 +14,13 @@ public class CarTest {
 
         assertThat(result).isEqualTo(new Position(0));
     }
+
+    @Test
+    void 자동차는_이름을_갖는다() {
+        Car sut = new Car("mycar");
+
+        Name result = sut.name();
+
+        assertThat(result).isEqualTo(new Name("mycar"));
+    }
 }
