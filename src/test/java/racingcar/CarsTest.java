@@ -38,4 +38,13 @@ public class CarsTest {
 
         assertThat(result).hasSize(5);
     }
+
+    @Test
+    void find_winners_() {
+        Cars sut = new Cars("a,b,c,d,e");
+
+        List<Car> result = sut.findWinners();
+
+        assertThat(result).hasSize(5);
+    }
 }
