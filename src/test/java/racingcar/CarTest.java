@@ -41,4 +41,14 @@ public class CarTest {
 
         assertThat(sut.position()).isEqualTo(new Position(0));
     }
+
+    @Test
+    void 우승자_판단() {
+        Car sut = new Car("mycar", new Position(10));
+        Position max = new Position(10);
+
+        boolean result = sut.isWinner(max);
+
+        assertThat(result).isTrue();
+    }
 }

@@ -14,6 +14,11 @@ public class Car {
         this.name = new Name(name);
     }
 
+    Car(String name, Position position) {
+        this(name);
+        this.position = position;
+    }
+
     public Position position() {
         return position;
     }
@@ -26,5 +31,9 @@ public class Car {
         if (strategy.movable()) {
             this.position = position.increase();
         }
+    }
+
+    public boolean isWinner(Position max) {
+        return position.equals(max);
     }
 }
