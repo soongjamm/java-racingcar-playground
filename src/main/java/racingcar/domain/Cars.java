@@ -35,8 +35,8 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    public List<Car> moveForward(RandomStrategy randomStrategy) {
-        cars.forEach(e -> e.moveForward(randomStrategy));
+    public List<Car> moveForward(MovingStrategy movingStrategy) {
+        cars.forEach(e -> e.moveForward(movingStrategy));
         return Collections.unmodifiableList(cars);
     }
 }

@@ -39,4 +39,13 @@ public class PositionTest {
 
         assertThat(result).isEqualTo(new Position(1));
     }
+
+    @Test
+    void to_string() {
+        Position sut = new Position(5);
+
+        String result = sut.toString();
+
+        assertThat(result).isEqualTo("-----");
+    }
 }
